@@ -21,6 +21,7 @@ const Form = ({ items }) => {
                 id={item.name}
                 required={item.required}
                 className="input"
+                key={item.name}
               />
             ) : item.type === "select" ? (
               <select
@@ -28,6 +29,7 @@ const Form = ({ items }) => {
                 id={item.name}
                 required={item.required}
                 className="select"
+                key={item.name}
               >
                 {item.options.map((option) => {
                   return (
@@ -44,17 +46,18 @@ const Form = ({ items }) => {
                 id={item.name}
                 required={item.required}
                 className="input"
+                key={item.name}
               />
             ) : (
-              <button type="submit" className="button">
+            <button type="submit" className="button">
                 {item.label}
-              </button>
+            </button>
             )}
-          </div>
+        </div>
         );
-      })}
+    })}
     </form>
-  );
+);
 };
 
 export default Form;
