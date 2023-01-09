@@ -16,7 +16,7 @@ const firebaseConfig = {
 export function writeUserData(email, fullName, dateOfBirth, country, termsOfService) {
     const db = getDatabase();
     const userId = 'user' + Math.random().toString(36).substr(2, 6);
-    set(ref(db, 'users/' + userId), {
+    set(ref(db, 'userAnswersForm/' + userId), {
         email: email,
         full_name: fullName,
         date_of_birth: dateOfBirth,
