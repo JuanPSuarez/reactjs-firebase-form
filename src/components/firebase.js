@@ -1,6 +1,6 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/database';
-
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from 'firebase/database';
+import 'firebase/compat/firestore'
 const firebaseConfig = {
     apiKey: "AIzaSyB-S4NqLnHUAMXZQ1SY-HwHPlewsns-PaA",
     authDomain: "reactjs-firebase-form.firebaseapp.com",
@@ -12,6 +12,20 @@ const firebaseConfig = {
     measurementId: "G-968CBENM35"
 };
 
-firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+export function writeUserData(email, fullName, dateOfBirth, country, termsOfService) {
+    const db = getDatabase();
+    const userId = 'user' + Math.random().toString(36).substr(2, 6);
+    set(ref(db, 'users/' + userId), {
+        email: email,
+        full_name: fullName,
+        date_of_birth: dateOfBirth,
+        country: country,
+        terms_of_service: termsOfService
+    });
+}
+
+const app = initializeApp(firebaseConfig);
+export const database = getDatabase(app)
+
+export default app;

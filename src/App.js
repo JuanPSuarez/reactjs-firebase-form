@@ -3,26 +3,30 @@ import './index.css';
 import React, { useEffect } from 'react';
 import Form from './components/Form';
 import formData from './db.json';
-import firebase from './components/firebase';
-
-
+import { writeUserData } from './components/firebase';
 
 function App() {
   useEffect(() => {
-const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
+  const form = document.querySelector('form');
+  form.addEventListener('submit', handleFormSubmit);
+
+  return () => {
+    form.removeEventListener('submit', handleFormSubmit);
+  };
+}, []);
+
+function handleFormSubmit(event) {
   event.preventDefault();
 
-  const formData = new FormData(form);
+  const formData = new FormData(event.target);
   const data = {};
 
   for (const [key, value] of formData.entries()) {
     data[key] = value;
   }
 
-  firebase.database().ref('forms').push(data);
-});
-}, []);
+  writeUserData(data.email, data.full_name, data.birth_date, data.country_of_origin, data.terms_and_conditions);
+}
 
 
   return (
