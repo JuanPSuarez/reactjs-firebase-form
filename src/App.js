@@ -7,8 +7,8 @@ import { writeUserData } from './components/firebase';
 
 function App() {
   useEffect(() => {
-  const form = document.querySelector('form');
-  form.addEventListener('submit', handleFormSubmit);
+    const form = document.querySelector('form');
+    form.addEventListener('submit', handleFormSubmit);
 
   return () => {
     form.removeEventListener('submit', handleFormSubmit);
@@ -17,7 +17,7 @@ function App() {
 
 function handleFormSubmit(event) {
   event.preventDefault();
-
+  const form = event.target;
   const formData = new FormData(event.target);
   const data = {};
 
@@ -26,6 +26,9 @@ function handleFormSubmit(event) {
   }
 
   writeUserData(data.email, data.full_name, data.birth_date, data.country_of_origin, data.terms_and_conditions);
+  window.alert('Form submitted successfully!');
+  form.reset()
+  
 }
 
 
