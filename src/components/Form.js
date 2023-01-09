@@ -4,9 +4,9 @@ import "../index.css";
 const Form = ({ items }) => {
   return (
     <form>
-      {items.map((item) => {
+      {items.map((item, index) => {
         return (
-          <div key={item.name}>
+          <div key={index}>
             {item.type !== "submit" && (
               <label htmlFor={item.name} className="label">
                 {item.label}
@@ -21,6 +21,7 @@ const Form = ({ items }) => {
                 id={item.name}
                 required={item.required}
                 className="input"
+                key={index}
               />
             ) : item.type === "select" ? (
               <select
@@ -28,10 +29,11 @@ const Form = ({ items }) => {
                 id={item.name}
                 required={item.required}
                 className="select"
+                key={index}
               >
-                {item.options.map((option) => {
+                {item.options.map((option, index) => {
                   return (
-                    <option key={option.value} value={option.value}>
+                    <option key={index} value={option.value}>
                       {option.label}
                     </option>
                   );
@@ -44,6 +46,7 @@ const Form = ({ items }) => {
                 id={item.name}
                 required={item.required}
                 className="input"
+                key={index}
               />
             ) : (
               <button type="submit" className="button">
