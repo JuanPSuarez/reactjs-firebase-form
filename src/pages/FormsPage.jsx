@@ -3,41 +3,43 @@ import Form from '../components/Form';
 import formData from '../assets/db.json';
 import { writeUserData } from '../components/Firebase';
 
-function App() {
-  useEffect(() => {
+const App = () => {
+
+useEffect(() => {
     const form = document.querySelector('form');
     form.addEventListener('submit', handleFormSubmit);
 
-  return () => {
-    form.removeEventListener('submit', handleFormSubmit);
-  };
+    return () => {
+        form.removeEventListener('submit', handleFormSubmit);
+    };
 }, []);
 
 function handleFormSubmit(event) {
-  event.preventDefault();
-  const form = event.target;
-  const formData = new FormData(event.target);
-  const data = {};
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(event.target);
+    const data = {};
 
-  for (const [key, value] of formData.entries()) {
-    data[key] = value;
-  }
+    for (const [key, value] of formData.entries()) {
+        data[key] = value;
+    }
 
-  writeUserData(data.email, data.full_name, data.birth_date, data.country_of_origin, data.terms_and_conditions);
-  window.alert('Form submitted successfully!');
-  form.reset()
-  
-}
+    writeUserData(data.email, data.full_name, data.birth_date, data.country_of_origin, data.terms_and_conditions);
+    window.alert('Form submitted successfully!');
+    form.reset()
+
+    }
 
 
-  return (
+return (
     <div className="App">
-      <div className="form-wrapper">
+        <div className="form-wrapper">
         <Form items={formData.items} />
-      </div>
+        <div>
+        </div>
+        </div>
     </div>
-
-  );
+);
 }
 
 export default App;
