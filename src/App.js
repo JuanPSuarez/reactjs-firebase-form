@@ -2,7 +2,7 @@ import './App.css';
 import './index.css';
 import React, { useEffect } from 'react';
 import Form from './components/Form';
-import formData from './db.json';
+import formData from './assets/db.json';
 import { writeUserData } from './components/firebase';
 
 function App() {

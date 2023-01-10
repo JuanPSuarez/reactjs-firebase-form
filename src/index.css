@@ -34,7 +34,7 @@ code {
 }
 
 .select {
-    background: url('down-arrow.svg') no-repeat right 0.8em center;
+    background: url('./assets/down-arrow.svg') no-repeat right 0.8em center;
     background-size: 0.8em;
 }
 
