@@ -9,6 +9,29 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.answers-page {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.answers-page>div {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.answers-page p {
+    margin: 0;
+}
+
+.answers-page p:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+
 .form-wrapper {
     max-width: 600px;
     margin: 0 auto;
@@ -34,7 +57,7 @@ code {
 }
 
 .select {
-    background: url('down-arrow.svg') no-repeat right 0.8em center;
+    background-image: url('./assets/down-arrow.svg') no-repeat right 0.8em center;
     background-size: 0.8em;
 }
 
