@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database';
 import 'firebase/compat/firestore'
 
 const firebaseConfig = {
@@ -14,10 +14,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-
-
-
 
 export function writeUserData(email, fullName, dateOfBirth, country, termsOfService) {
     const db = getDatabase();

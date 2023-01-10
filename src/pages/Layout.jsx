@@ -1,21 +1,17 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link,  } from "react-router-dom";
+import { Button } from "@mui/material"
+import { useLocation } from 'react-router'
 
 const Layout = () => {
+    const location = useLocation()
+
     return (
     <>
-        <nav>
-        <ul>
-            <li>
-            <Link to="/">Formulario</Link>
-            </li>
-            <li>
-            <Link to="/AnswersPage">Respuestas</Link>
-            </li>
-            {/* <li>
-            <Link to="/contact">Contact</Link>
-            </li> */}
-        </ul>
-        </nav>
+    {location.pathname === "/AnswersPage" && 
+        <Link to="/">
+    <Button variant="contained">Volver</Button>
+    </Link>}
+
         <Outlet />
     </>
     )
