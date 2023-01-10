@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Form from '../components/Form';
 import formData from '../assets/db.json';
 import { writeUserData } from '../components/Firebase';
-import { Alert, Grid } from '@mui/material';
+import SubmitedAlert from '../components/SubmitedAlert';
+// import { Alert, Grid } from '@mui/material';
 
 const App = () => {
-    const [show, setShow] = useState(false)
+    const [open, setOpen] = useState(false);
+    const [checked, setChecked] = useState(false);
+    // const [show, setShow] = useState(false)
 useEffect(() => {
     const form = document.querySelector('form');
     form.addEventListener('submit', handleFormSubmit);
@@ -31,11 +34,12 @@ function handleFormSubmit(event) {
     writeUserData(data.email, data.full_name, data.birth_date, data.country_of_origin, data.terms_and_conditions);
     // window.alert('Form submitted successfully!');    
     form.reset();
-    setShow(!show) //alert
-    setTimeout(() => {
-        setShow(show)
-    }, 2000);
-    
+    setChecked(false)
+    setOpen(true)
+    // setShow(!show) //alert
+    // setTimeout(() => {
+    //     setShow(show)
+    // }, 2000);
 
     }
 
@@ -43,12 +47,13 @@ function handleFormSubmit(event) {
 return (
     <div className="App">
         <div className="form-wrapper">
-        <Form items={formData.items} />
-        {show ? <> 
+        <Form items={formData.items} checked={checked} setChecked={setChecked}/>
+        {/* {show ? <> 
         <Grid container  alignItems="center" direction="column">
-        <Alert severity="success">Formulario enviado.</Alert> 
+            <Alert severity="success">Formulario enviado.</Alert> 
         </Grid>
-        </>:null}
+        </>:null} */}
+        <SubmitedAlert open={open} setOpen={setOpen} />
         <div>
         </div>
         </div>
