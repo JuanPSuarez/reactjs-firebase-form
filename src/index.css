@@ -72,6 +72,10 @@ code {
     cursor: pointer;
 }
 
+.Alert {
+    font-size: 200px;
+}
+
 @media (max-width: 600px) {
     .input,
     .select,
