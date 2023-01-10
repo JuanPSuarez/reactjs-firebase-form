@@ -13,10 +13,10 @@ const AnswersPage = () => {
       setAnswers(snapshot.val());
     });
   }, []);
-
-  const answerElements = Object.keys(answers).map((key) => {
+    const answerElements = answers ? Object.keys(answers).map((key) => {
     const answer = answers[key];
-    return (
+    
+    return(
       <div key={key}>
         <p>User: {key}</p>
         <p>Full Name: {answer.full_name}</p>
@@ -24,14 +24,12 @@ const AnswersPage = () => {
         <p>Date of Birth: {answer.date_of_birth}</p>
         <p>Country: {answer.country}</p>
         <p>Terms of Service: {answer.terms_of_service}</p>
-
       </div>
     );
-  });
-    
+  }) : <p>Nothing to see here...</p>
   return (
     <div className='answers-page'>
-        {answerElements}
+      {answerElements}
     </div>
   );
 }
