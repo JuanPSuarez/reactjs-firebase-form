@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import Form from './components/Form';
 import formData from './assets/db.json';
 import { writeUserData } from './components/firebase';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   useEffect(() => {
@@ -33,11 +34,14 @@ function handleFormSubmit(event) {
 
 
   return (
+    <BrowserRouter>
+    
     <div className="App">
       <div className="form-wrapper">
         <Form items={formData.items} />
       </div>
     </div>
+    </BrowserRouter>
   );
 }
 
