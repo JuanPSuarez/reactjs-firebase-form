@@ -1,7 +1,14 @@
 import React from "react";
+import { Button, Checkbox } from "@mui/material";
 import "../index.css";
+import { useState } from "react";
+
 
 const Form = ({ items }) => {
+  const [checked, setChecked] = useState(false);
+  const handleChange = (event = SubmitEvent) => {
+  setChecked(event.target.checked);
+  };
   return (
     <form>
       {items.map((item, index) => {
@@ -40,24 +47,27 @@ const Form = ({ items }) => {
                 })}
               </select>
             ) : item.type === "checkbox" ? (
-              <input
+              <Checkbox
                 type={item.type}
                 name={item.name}
                 id={item.name}
                 required={item.required}
                 className="input"
                 key={index}
+                checked = {checked}
+                onChange={handleChange}
+                inputProps={{'aria-label': 'controled'}}
               />
             ) : (
-              <button type="submit" className="button">
+              <Button variant="contained" type="submit" className="button">
                 {item.label}
-              </button>
+              </Button>
             )}
           </div>
         );
       })}
     </form>
-  );
-};
+  )};
+
 
 export default Form;
