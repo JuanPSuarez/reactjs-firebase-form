@@ -52,18 +52,13 @@ BootstrapDialogTitle.propTypes = {
 const  SubmitedAlert  = ({setOpen, open}) => {
   
 
-//   const handleClickOpen = () => {
-//     setOpen(true);
-//   };
+
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
     <div>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
-      </Button> */}
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

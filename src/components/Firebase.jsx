@@ -27,16 +27,5 @@ export function writeUserData(email, fullName, dateOfBirth, country, termsOfServ
     });
 }
 
-
-
-
-// const db = getDatabase();
-// const answersRef = ref(db, 'userAnswersForm');
-// onValue(answersRef, (snapshot) => {
-//     const answers = snapshot.val();
-//     // console.log(answers);
-// });
-
-
 export const database = getDatabase(app)
 export default app;
