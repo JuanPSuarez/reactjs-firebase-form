@@ -11,7 +11,7 @@ const Form = ({ items, checked, setChecked, onSumbit }) => {
   setChecked(!checked) ;
   };
   return (
-    <form onSubmit={(e)=> handleFormSubmit()}>
+    <form onSubmit={(e)=> handleFormSubmit(event)}>
       {items.map((item, index) => {
         return (
           <div key={index}>
