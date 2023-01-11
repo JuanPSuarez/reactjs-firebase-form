@@ -7,50 +7,44 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+const TableAnswers = ({ answers }) => {
+  const answerRows = answers ? Object.keys(answers).map((key) => {
+    const answer = answers[key];
+    return {
+      UserID: key,
+      full_name: answer.full_name,
+      email: answer.email,
+      DateOfBirth: answer.date_of_birth,
+      Country: answer.country
+    };
+  }) : [];
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-const TableAnswers = () => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+      <Table sx={{ minWidth: 800 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>UserID </TableCell>
+            <TableCell align="right">Full Name</TableCell>
+            <TableCell align="right">Email&nbsp;</TableCell>
+            <TableCell align="right">Date of Birth&nbsp;</TableCell>
+            <TableCell align="right">Country&nbsp;</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+          {answerRows.map((row) => (
+            <TableRow key={row.UserID}>
+              <TableCell>{row.UserID}</TableCell>
+              <TableCell align="right">{row.full_name}</TableCell>
+              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="right">{row.DateOfBirth} </TableCell>
+              <TableCell align="right">{row.Country}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 
 export default TableAnswers;
