@@ -4,7 +4,7 @@ import formData from '../assets/db.json';
 import { writeUserData } from '../components/Firebase';
 import SubmitedAlert from '../components/SubmitedAlert';
 
-const App = () => {
+const FormsPage = () => {
     const [open, setOpen] = useState(false);
     const [checked, setChecked] = useState(false);
 
@@ -35,4 +35,4 @@ return (
     </div>
 );
 }
-export default App;
+export default FormsPage;
