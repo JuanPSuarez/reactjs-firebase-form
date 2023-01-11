@@ -1,16 +1,17 @@
 import React from "react";
 import { Button, Checkbox } from "@mui/material";
 import "../index.css";
+import { handleFormSubmit } from '../pages/FormsPage'
 // import { useState } from "react";
 
 
-const Form = ({ items, checked, setChecked }) => {
+const Form = ({ items, checked, setChecked, onSumbit }) => {
   const handleChange = () => {
   // checked === true ? setChecked(false) : setChecked(true)
   setChecked(!checked) ;
   };
   return (
-    <form>
+    <form onSubmit={(e)=> handleFormSubmit()}>
       {items.map((item, index) => {
         return (
           <div key={index}>
@@ -25,7 +26,7 @@ const Form = ({ items, checked, setChecked }) => {
               <input
                 type={item.type}
                 name={item.name}
-                id={item.name}
+                id={item.name} //debug id's
                 required={item.required}
                 className="input"
                 key={index}

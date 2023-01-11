@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Form from '../components/Form';
 import formData from '../assets/db.json';
 import { writeUserData } from '../components/Firebase';
@@ -9,15 +9,7 @@ const App = () => {
     const [open, setOpen] = useState(false);
     const [checked, setChecked] = useState(false);
     // const [show, setShow] = useState(false)
-useEffect(() => {
-    const form = document.querySelector('form');
-    form.addEventListener('submit', handleFormSubmit);
-    
-    return () => {
-        form.removeEventListener('submit', handleFormSubmit);
-        
-    };
-}, );
+
 
 function handleFormSubmit(event) {
 
@@ -47,7 +39,7 @@ function handleFormSubmit(event) {
 return (
     <div className="App">
         <div className="form-wrapper">
-        <Form items={formData.items} checked={checked} setChecked={setChecked}/>
+        <Form items={formData.items} checked={checked} setChecked={setChecked} onSubmit={handleFormSubmit}/>
         {/* {show ? <> 
         <Grid container  alignItems="center" direction="column">
             <Alert severity="success">Formulario enviado.</Alert> 

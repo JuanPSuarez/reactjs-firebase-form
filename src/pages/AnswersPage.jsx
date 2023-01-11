@@ -33,6 +33,7 @@ const AnswersPage = () => {
     {/* <Button variant="contained"> Volver</Button> */}
     <div className='answers-page'>
       {answerElements}
+      
     </div>
     </>
   );
