@@ -1,17 +1,13 @@
 import React from "react";
 import { Button, Checkbox } from "@mui/material";
 import "../index.css";
-import { handleFormSubmit } from '../pages/FormsPage'
-// import { useState } from "react";
 
-
-const Form = ({ items, checked, setChecked, onSumbit }) => {
+const Form = ({ items, checked, setChecked, onSubmit }) => {
   const handleChange = () => {
-  // checked === true ? setChecked(false) : setChecked(true)
   setChecked(!checked) ;
   };
   return (
-    <form onSubmit={(e)=> handleFormSubmit(event)}>
+    <form onSubmit={(event)=> onSubmit(event)}>
       {items.map((item, index) => {
         return (
           <div key={index}>
@@ -26,7 +22,7 @@ const Form = ({ items, checked, setChecked, onSumbit }) => {
               <input
                 type={item.type}
                 name={item.name}
-                id={item.name} //debug id's
+                id={item.name}
                 required={item.required}
                 className="input"
                 key={index}
@@ -57,7 +53,6 @@ const Form = ({ items, checked, setChecked, onSumbit }) => {
                 key={index}
                 checked = {checked}
                 onChange = {handleChange}
-                // inputProps={{'aria-label': 'controled'}}
               />
             ) : (
               <Button variant="contained" type="submit" className="button">

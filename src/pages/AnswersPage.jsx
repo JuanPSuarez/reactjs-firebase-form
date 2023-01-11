@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue } from 'firebase/database';
 
-
-
 const AnswersPage = () => {
       const [answers, setAnswers] = useState({});
-
   useEffect(() => {
     const db = getDatabase();
     const answersRef = ref(db, 'userAnswersForm');
-
     onValue(answersRef, (snapshot) => {
       setAnswers(snapshot.val());
     });
   }, []);
     const answerElements = answers ? Object.keys(answers).map((key) => {
     const answer = answers[key];
-    
     return(
       <div key={key}>
         <p>User: {key}</p>
@@ -30,7 +25,6 @@ const AnswersPage = () => {
   }) : <p>Nothing to see here...</p>
   return (
     <>
-    {/* <Button variant="contained"> Volver</Button> */}
     <div className='answers-page'>
       {answerElements}
       
