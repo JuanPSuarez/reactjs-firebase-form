@@ -43,12 +43,13 @@ code {
     display: block;
     margin-bottom: 0.5em;
     font-size: 1.2em;
+    margin-top: 10px;
 }
 
 .input,
 .select {
     display: block;
-    width: 500px;
+    width: 90%;
     margin: 0 auto;
     padding: 0.8em;
     font-size: 1.2em;
@@ -72,14 +73,9 @@ code {
     cursor: pointer;
 }
 
-.Alert {
-    font-size: 200px;
-}
-
-@media (max-width: 600px) {
+@media (min-width: 600px) {
     .input,
-    .select,
-    .button {
-        width: 100%;
+    .select {
+        width: 500px;
     }
 }
