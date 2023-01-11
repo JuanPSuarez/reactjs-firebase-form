@@ -4,14 +4,12 @@ import { useLocation } from 'react-router'
 
 const Layout = () => {
     const location = useLocation()
-
     return (
     <>
     {location.pathname === "/AnswersPage" && 
         <Link to="/">
     <Button variant="contained">Volver</Button>
     </Link>}
-
         <Outlet />
     </>
     )
